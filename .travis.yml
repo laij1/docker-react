@@ -1,0 +1,12 @@
+sudo: required
+
+language: generic 
+
+services:
+  - docker
+
+before_install:
+  - docker build -t jungyinl/docker-react -f Dockerfile.dev .
+
+scripts:
+  - docker run -e CI=true USERNAME/docker-react npm run test
